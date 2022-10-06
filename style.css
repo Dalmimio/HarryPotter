@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,400;1,300&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Serif Display', serif;    
+}
+/* - - - - - - - - - - Scroll - - - - - - - - - - */
+.body::-webkit-scrollbar{
+    width: 7px;
+    
+    background: darkgrey;
+}
+.body::-webkit-scrollbar-thumb{
+    background: goldenrod;
+    border-radius: 5px;
+}
+
+/* ------------------------------ HEADER */
+header{
+    min-height: 10vh;
+    border-bottom: 1px solid goldenrod;
+}
+
+.logo__header{
+    width: 450px;
+}
+
+
+/* ------------------------------ MAIN */
+main{
+    min-height: 80vh;
+    
+}
+
+#search{
+    width: 20rem;
+    height: 3rem;
+}
+/* ------------------------------ cartas*/
+.card{
+    width: 18rem;
+    background-color: #161927;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 6px -1px, rgba(0, 0, 0, 0.8) 0px 2px 4px -1px;
+ }
+
+.card:hover{
+    transform: scale(1.05);
+}
+.card__img{
+    height: 70%;
+    object-fit: cover;
+    border-radius: 1rem 1rem 0 0;
+    object-fit: fill;
+}
+
+.card-body{
+    text-align: start !important;
+    height: 30%;
+}
+.card-body h5{
+    font-weight: 400;
+}
+.card-body p{
+    font-weight: 300;
+}
+ 
+
+/* ------------------------------ ERROR */
+.logo_error{
+    width: 250px;
+}
+span{
+    font-style: italic;
+}
+
+/* ------------------------------ FOOTER */
+footer{
+    min-height: 20vh;    
+    border-top: 1px solid goldenrod;
+}
+
+.img__foo{
+   width: 80px;
+}
+
+/* - - - - - - - - - - B O T O N C I T O  U  P - - - - - - - - - - */
+
+.go-top-container{
+    position: fixed;
+    bottom: 2rem;
+    right: -2rem !important;
+    width: 5rem;
+    height: 5rem;
+    z-index: -1;
+    background-color: #16192727;
+}
+.go-top-button{
+    width: 0rem;
+    height: 0rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: .2s;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    
+}
+
+.go-top-button img{
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    width: 5rem;
+    transform: translate(-50%, -50%);
+}
+.show{
+    z-index: 10;
+}
+
+.show .go-top-button{
+    animation: popup .3s ease-in-out;
+    width: 6rem;
+    height: 6rem;
+    z-index: 11;
+}
+
+.show i{
+    transform: translate(-50%, -50%) scale(1);
+
+}
+
+
+@keyframes popup{
+    0%{
+        width: 0rem;
+        height: 0rem;
+    }
+    50%{
+        width: 8rem;
+        height: 8rem;
+    }
+    100%{
+        width: 6.6rem;
+        height: 6.6rem;
+    }
+}
+
+
+/* ------------------------------ MEDIA QUERY */
+
+@media screen and (max-width: 550px){
+    .logo__header{
+        width: 250px;
+    }
+    footer{
+        flex-direction: column;
+    }
+}
