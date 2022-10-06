@@ -1,4 +1,4 @@
-let url = 'http://hp-api.herokuapp.com/api/characters'
+let url = 'https://hp-api.herokuapp.com/api/characters'
 let divCarts=document.getElementById('container-cards')
 let arrayProtas=[]
 let inputSearch=document.getElementById('search')
