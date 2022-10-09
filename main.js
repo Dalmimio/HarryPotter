@@ -1,4 +1,4 @@
-let url = 'https://hp-api.herokuapp.com/api/characters'
+let url = 'http://hp-api.herokuapp.com/api/characters'
 let divCarts=document.getElementById('container-cards')
 let arrayProtas=[]
 let inputSearch=document.getElementById('search')
@@ -14,7 +14,7 @@ function traerDatos(url) {
     .then((data) => {
       data.forEach((personaje) => {
          arrayProtas=data;
-        if (!house.includes(personaje.house) && personaje.house !='') {
+        if (!house.includes(personaje.house)) {
           house.push(personaje.house);
         }
       });
@@ -35,33 +35,37 @@ function mostrarCartas(arrayPibes) {
   if(arrayPibes!=0){
     arrayPibes.forEach((pibe) => {
       let card = document.createElement("div");
-      card.className = "card p-0 text-white";
-      card.innerHTML = `<img src=${
-        pibe.image == "" ? "assets/see.jpg" : pibe.image
-      } class="card__img card-img-top" alt="${pibe.name}">
-        <div class="card-body d-flex flex-column justify-content-center">
-          <h5 class="card-title align-self-center">${pibe.name}</h5>
-          <p class="card-text">${
-            pibe.house == "" ? "" : "House: " + pibe.house
-          }</p>
-          <p class="card-text">${
-            pibe.ancestry == "" ? "" : "Ancestry: " + pibe.ancestry
-          }</p>
-          <p class="card-text">${
-            pibe.patronus == "" ? "" : "Patronus: " + pibe.patronus
-          }</p>
-          <p class="card-text">${
-            pibe.wand.core == "" ? "" : "Wand: " + pibe.wand.core
-          }</p>
-        </div>`;
+      card.className = `card ${(pibe.house=='Gryffindor')? "color-gry" : (pibe.house=='Slytherin')?"color-sly":(pibe.house=='Hufflepuff')?'color-huff':(pibe.house=='Ravenclaw')?'color-rav':'color-defecto'}`;
+
+      card.innerHTML = `<div class="front">
+                    <img src=${
+                        pibe.image == "" ? "assets/see.jpg" : pibe.image
+                      } class="img-cards card-img-top" alt="${pibe.name}">
+                </div>
+                <div class="back d-flex flex-column justify-content-evenly">
+                    <h5 class="card-title align-self-center">${pibe.name}</h5>
+                    <p class="card-text">${
+                        pibe.house == "" ? "" : "House: " + pibe.house
+                        }</p>
+                    <p class="card-text">${
+                        pibe.ancestry == "" ? "" : "Ancestry: " + pibe.ancestry
+                        }</p>
+                    <p class="card-text">${
+                        pibe.patronus == "" ? "" : "Patronus: " + pibe.patronus
+                        }</p>
+                    <p class="card-text">${
+                        pibe.wand.core == "" ? "" : "Wand: " + pibe.wand.core
+                        }</p>
+                </div>`;
       divCarts.appendChild(card);
     });
   }else {
     let card = document.createElement("div");
-    card.className = "text-center";
+    card.className = "text-center content-error";
     card = `<img src="assets/felix.png" class="logo_error" alt="">
-  <h3>Ni siquiera el encantamiento <span>Accio</span> encontro lo que buscabas</h3>
-  <h5>Por favor, toma un poco de <span>Felix Felicis</span> e intentalo de nuevo</h5>`;
+    <div class="align-items-center">
+    <h3>Ni siquiera el encantamiento <span>Accio</span> encontro lo que buscabas</h3>
+    <h5>Por favor, toma un poco de <span>Felix Felicis</span> e intentalo de nuevo</h5></div>`;
     divCarts.innerHTML = card;
   }
     
@@ -80,7 +84,6 @@ checksContain.addEventListener('change', superFiltro)
 // ---------------------------------- CREAR CHECKS
 
 function crearChecks(array){
-    checksContain.innerHTML=''
 
     
       array.forEach(elemento => {
@@ -89,7 +92,7 @@ function crearChecks(array){
         divSwitch.className='form-checks form-switch'
 
         divSwitch.innerHTML=` <input class="form-check-input" type="checkbox" role="switch" id="${elemento}" value="${elemento}">
-        <label class="form-check-label" for="${elemento}">${elemento}</label>`
+        <label class="form-check-label" for="${elemento}">${(elemento=='')?'Indefinido':elemento}</label>`
     
         checksContain.appendChild(divSwitch)
     

@@ -16,21 +16,27 @@
     background: goldenrod;
     border-radius: 5px;
 }
+body{
+    background-image: url("https://i.pinimg.com/originals/01/7e/c6/017ec68766316d680f71277402e313e7.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
 
 /* ------------------------------ HEADER */
 header{
-    min-height: 10vh;
+    min-height: 15vh;
     border-bottom: 1px solid goldenrod;
 }
 
 .logo__header{
-    width: 450px;
+    width: 250px;
+    height: 100px;
 }
 
 
 /* ------------------------------ MAIN */
 main{
-    min-height: 80vh;
+    min-height: 65vh;
     
 }
 
@@ -39,36 +45,129 @@ main{
     height: 3rem;
 }
 /* ------------------------------ cartas*/
+
+
+
+
+
+
+
+
 .card{
-    width: 18rem;
-    background-color: #161927;
-    border-radius: 1rem;
-    box-shadow: rgba(0, 0, 0, 0.5) 0px 4px 6px -1px, rgba(0, 0, 0, 0.8) 0px 2px 4px -1px;
- }
+    border: none;
+    cursor: default;
+    height: 300px;
+    width: 13rem !important;
+    transform-style: preserve-3d;
+    transition: transform 0.4s ease 0s;
+    width: 30%;
+    -webkit-animation: giro 2s 5;
+    animation: giro 2s 1;
+}
+
+.card h5{
+    background: rgba(51, 51, 51, 0.404);
+    color: #fff;
+    text-align: center;
+    margin: 0 0 5% 0;
+    padding: 0.5em;
+    width: 100%;
+}
+.color-gry{
+background-color: #740001;
+}
+
+.color-sly{
+background-color: #1a472a;
+}
+
+.color-huff{
+background-color: #ecb939;
+}
+.color-rav{
+    background-color: #0e1a40;
+}
+.color-defecto{
+    background-color: darkslategray;
+}
+.img-cards{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
 
 .card:hover{
-    transform: scale(1.05);
+    transform: rotateY(180deg)
 }
-.card__img{
-    height: 70%;
-    object-fit: cover;
-    border-radius: 1rem 1rem 0 0;
-    object-fit: fill;
+.card p{
+    margin-bottom: .2em;
 }
 
-.card-body{
-    text-align: start !important;
-    height: 30%;
+
+.card .front, .card .back{
+    backface-visibility: hidden;
+    box-sizing: border-box;
+    display: block;
+    height: 100%;
+    position: absolute;
+    width: 100%;
 }
-.card-body h5{
-    font-weight: 400;
+.card .back p{
+    text-align: start;
+    padding-left: .2rem;
 }
-.card-body p{
-    font-weight: 300;
+
+
+
+
+.card .back{
+    transform: rotateY(180deg);
+}
+
+.card .back a{
+    padding: .3em .5em;
+    background: #333;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 1px;
+    font-size: .9em;
+    transition: all .2s ease 0s;
+}
+
+.card .back a:hover{
+    background: #fff;
+    color: #333;
+    text-shadow: 0 0 1px #333;
+}
+
+
+
+@-webkit-keyframes giro{
+    from{
+        transform: rotateY(180deg);
+    }
+    to{
+        transform: rotateY(0deg);
+    }
+}
+
+@keyframes giro{
+    from{
+        transform: rotateY(180deg);
+    }
+    to{
+        transform: rotateY(0deg);
+    }
 }
  
 
 /* ------------------------------ ERROR */
+
+/* .content-error h3{
+
+} */
 .logo_error{
     width: 250px;
 }
@@ -78,12 +177,13 @@ span{
 
 /* ------------------------------ FOOTER */
 footer{
-    min-height: 20vh;    
+    min-height: 15vh;    
     border-top: 1px solid goldenrod;
+    box-shadow: 2px 2px gold;
 }
 
 .img__foo{
-   width: 80px;
+   width: 60px;
 }
 
 /* - - - - - - - - - - B O T O N C I T O  U  P - - - - - - - - - - */
@@ -160,3 +260,5 @@ footer{
         flex-direction: column;
     }
 }
+
+
